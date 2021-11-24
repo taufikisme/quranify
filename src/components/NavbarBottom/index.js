@@ -11,12 +11,12 @@ export default function NavbarBottom() {
       <Container className="py-1">
         <ul className="flex justify-between items-center">
           <NavLink name="Qpedia" link="/quranpedia" icon={<FaQuran />} />
-          <NavLink name="Qaudio" icon={<SiAudioboom />} />
+          <NavLink name="Qaudio" link="/qaudio" icon={<SiAudioboom />} />
           <div className="relative w-12 h-12">
             <MainNav />
           </div>
-          <NavLink name="About" icon={<FaInfoCircle />} />
-          <NavLink name="Settings" icon={<FaCog />} />
+          <NavLink name="About" link="/about" icon={<FaInfoCircle />} />
+          <NavLink name="Settings" link="/settings" icon={<FaCog />} />
         </ul>
       </Container>
     </div>
