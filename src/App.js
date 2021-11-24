@@ -6,6 +6,9 @@ const Home = React.lazy(() => import("./pages/home"));
 const Surah = React.lazy(() => import("./pages/surah"));
 const QuranPedia = React.lazy(() => import("./pages/quranpedia"));
 const Tafsir = React.lazy(() => import("./pages/tafsir"));
+const About = React.lazy(() => import("./pages/about"));
+const Qaudio = React.lazy(() => import("./pages/qaudio"));
+const Settings = React.lazy(() => import("./pages/settings"));
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path="/surah/:id" component={Surah} />
           <Route exact path="/quranpedia" component={QuranPedia} />
           <Route path="/quranpedia/:id" component={Tafsir} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/qaudio" component={Qaudio} />
+          <Route exact path="/settings" component={Settings} />
         </Switch>
       </Router>
     </React.Suspense>
