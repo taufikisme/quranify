@@ -1,6 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Quranify",
+  "name": "Quranify",
+  "version": "0.1.0",
+  "description": "Quran and Translation in Bahasa",
+  "author": "Taufikisme",
+  "license": "UNLICENSED",
   "icons": [
     {
       "src": "favicon.ico",
