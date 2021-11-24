@@ -24,7 +24,7 @@ export default function Surah() {
       <Container className="mt-20">
         {!surah.name && (
           <div className="mt-8">
-            {[...Array(5)].map((index) => (
+            {[...Array(5)].map((item, index) => (
               <LoadingCard key={index} />
             ))}
           </div>
