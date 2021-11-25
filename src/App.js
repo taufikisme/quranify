@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTop from "./core/lib/scrollToTop";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Surah = React.lazy(() => import("./pages/surah"));
@@ -14,6 +15,7 @@ function App() {
   return (
     <React.Suspense fallback={<LoadingScreen />}>
       <Router>
+        <ScrollToTop />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/loading" component={LoadingScreen} />
