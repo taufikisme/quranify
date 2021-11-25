@@ -8,6 +8,8 @@ import CardNumber from "../components/CardNumber";
 import ReactAudioPlayer from "react-audio-player";
 import { Link } from "react-router-dom";
 import LoadingCard from "../components/LoadingCard";
+import Button from "../components/Button";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 export default function Surah() {
   const params = useParams();
@@ -99,6 +101,26 @@ export default function Surah() {
                   </div>
                 </div>
               ))}
+              <div className="mt-10 w-full flex justify-between items-center">
+                <div>
+                  {surah.number > 1 && (
+                    <Link to={`/surah/${surah.number - 1}`}>
+                      <Button className="flex items-center">
+                        <FaAngleLeft className="mr-2" /> Prev
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+                <div>
+                  {surah.number < 114 && (
+                    <Link to={`/surah/${surah.number + 1}`}>
+                      <Button className="flex items-center">
+                        Next <FaAngleRight className="ml-2" />
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+              </div>
             </div>
           </>
         )}
