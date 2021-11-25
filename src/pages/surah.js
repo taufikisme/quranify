@@ -23,7 +23,7 @@ export default function Surah() {
   const nextPlay = () => {
     if (currentAyah + 1 <= surah.numberOfVerses) {
       let x = document.getElementById(`verse${currentAyah + 1}`);
-      x.load();
+      x.currentTime = 0;
       x.play();
       x.scrollIntoView({
         block: "center",
@@ -33,10 +33,6 @@ export default function Surah() {
       setCurrentAyah(0);
     }
   };
-
-  useEffect(() => {
-    console.log(currentAyah);
-  }, [currentAyah]);
 
   return (
     <MainLayout>
