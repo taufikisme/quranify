@@ -12,12 +12,31 @@ import LoadingCard from "../components/LoadingCard";
 export default function Surah() {
   const params = useParams();
   const [surah, setSurah] = useState({});
+  const [currentAyah, setCurrentAyah] = useState(0);
   useEffect(() => {
     getSurahById(params.id).then((res) => {
       setSurah(res.data.data);
       //   console.log(res.data.data);
     });
   }, [params]);
+
+  const nextPlay = () => {
+    if (currentAyah + 1 <= surah.numberOfVerses) {
+      let x = document.getElementById(`verse${currentAyah + 1}`);
+      x.load();
+      x.play();
+      x.scrollIntoView({
+        block: "center",
+        behavior: "smooth",
+      });
+    } else {
+      setCurrentAyah(0);
+    }
+  };
+
+  useEffect(() => {
+    console.log(currentAyah);
+  }, [currentAyah]);
 
   return (
     <MainLayout>
@@ -58,13 +77,24 @@ export default function Surah() {
                 <div key={i} className="mb-4">
                   <div className="w-full rounded-xl bg-gray-100 px-4 flex justify-between items-center mb-4">
                     <CardNumber number={verse.number.inSurah} />
-                    <ReactAudioPlayer
-                      src={verse.audio.primary}
-                      controls={true}
-                    />
+                    <div className="overflow-hidden" style={{ width: "250px" }}>
+                      <ReactAudioPlayer
+                        id={`verse${verse.number.inSurah}`}
+                        src={verse.audio.primary}
+                        controls={true}
+                        onPlay={() => setCurrentAyah(verse.number.inSurah)}
+                        onEnded={() => nextPlay()}
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-right text-gray-800 text-3xl font-medium">
+                    <p
+                      className={`text-right text-3xl font-medium ${
+                        currentAyah === verse.number.inSurah
+                          ? "text-purple-500"
+                          : "text-gray-800"
+                      }`}
+                    >
                       {verse.text.arab}
                     </p>
                     <p className="text-gray-400 font-light text-sm">
