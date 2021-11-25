@@ -49,7 +49,7 @@ export default function About() {
               </a>
             </p>
             <p className="text-sm text-gray-400">
-              Also, let's give a star for his repository on{" "}
+              Also, let's give a star to his repository on{" "}
               <a
                 href="https://github.com/sutanlab/quran-api"
                 className="text-purple-500"
