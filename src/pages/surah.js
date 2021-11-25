@@ -25,9 +25,10 @@ export default function Surah() {
   const nextPlay = () => {
     if (currentAyah + 1 <= surah.numberOfVerses) {
       let x = document.getElementById(`verse${currentAyah + 1}`);
+      let y = document.getElementById(`mainVerse${currentAyah + 1}`);
       x.currentTime = 0;
       x.play();
-      x.scrollIntoView({
+      y.scrollIntoView({
         block: "center",
         behavior: "smooth",
       });
@@ -85,9 +86,12 @@ export default function Surah() {
                       />
                     </div>
                   </div>
-                  <div className="space-y-2">
+                  <div
+                    id={`mainVerse${verse.number.inSurah}`}
+                    className="space-y-2"
+                  >
                     <p
-                      className={`text-right text-3xl font-medium ${
+                      className={`text-right text-3xl leading-snug font-medium ${
                         currentAyah === verse.number.inSurah
                           ? "text-purple-500"
                           : "text-gray-800"
